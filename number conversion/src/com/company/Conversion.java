@@ -60,6 +60,10 @@ public class Conversion {
         return(str);
     }
 
+    public static int binaryToDecimal(String value){
+        
+    }
+
     private static String toUnsignedString(int val, int shift) {
         // assert shift > 0 && shift <=5 : "Illegal shift value";
         int mag = Integer.SIZE - Integer.numberOfLeadingZeros(val);
@@ -93,14 +97,5 @@ public class Conversion {
             'u' , 'v' , 'w' , 'x' , 'y' , 'z'
     };
 
-    public static byte[] stringToBcd(String bcdString) {
 
-        byte[] binBcd = new byte[bcdString.length() / 2];
-
-        for (int i = 0; i < binBcd.length; i++) {
-            String sByte = bcdString.substring(i*2, i*2+2);
-            binBcd[i] = Byte.parseByte(sByte);
-        }
-        return binBcd;
-    }
 }
