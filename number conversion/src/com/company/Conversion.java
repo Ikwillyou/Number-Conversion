@@ -61,7 +61,8 @@ public class Conversion {
     }
 
     public static int binaryToDecimal(String value){
-        
+        int numb = Integer.parseInt(value);
+        return(numb);
     }
 
     private static String toUnsignedString(int val, int shift) {
