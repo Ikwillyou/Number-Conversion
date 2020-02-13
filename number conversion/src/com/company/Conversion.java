@@ -60,16 +60,17 @@ public class Conversion {
         return(str);
     }
 
-    public static int RadixToDecimal(String value,int radix){
+    public static int RadixToDecimal(String value){
         String beforePoint = value.substring(0,value.indexOf('.'));
         String afterPoint = value.substring(value.indexOf('.')+1);
 
         int count = beforePoint.length()-1;
         int beforeTotal = 0;
-        for(int x = 0; x < Math.pow(2,beforePoint.length()); x *= radix){
-            int temp;
+        for(int x = 0; x < beforePoint.length(); x++){
+            double temp;
             temp = beforePoint.toCharArray()[count];
-            temp = temp * x;
+            temp = temp * Math.pow(2,x);
+            
         }
 
         return(numb);
