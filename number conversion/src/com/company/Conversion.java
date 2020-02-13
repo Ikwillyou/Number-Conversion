@@ -60,7 +60,7 @@ public class Conversion {
         return(str);
     }
 
-    public static int RadixToDecimal(String value){
+    public static int binaryToDecimal(String value){
         String beforePoint = value.substring(0,value.indexOf('.'));
         String afterPoint = value.substring(value.indexOf('.')+1);
 
@@ -70,10 +70,10 @@ public class Conversion {
             double temp;
             temp = beforePoint.toCharArray()[count];
             temp = temp * Math.pow(2,x);
-            
+            beforeTotal += Math.round(temp);
         }
 
-        return(numb);
+        return(beforeTotal);
 
 
     }
