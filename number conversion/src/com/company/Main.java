@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Conversion convert = new Conversion();
-        String i = Conversion.decimalToBCD(1523);
+        int i = Conversion.binaryToDecimal("100.100",2);
         System.out.println(i);
     }
 
