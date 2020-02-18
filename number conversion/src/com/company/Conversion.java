@@ -60,17 +60,27 @@ public class Conversion {
         return(str);
     }
 
-    public static int binaryToDecimal(String value){
+    public static double binaryToDecimal(String value){
         String beforePoint = value.substring(0,value.indexOf('.'));
         String afterPoint = value.substring(value.indexOf('.')+1);
-
+        String fullNum;
         int count = beforePoint.length()-1;
         int beforeTotal = 0;
         for(int x = 0; x < beforePoint.length(); x++){
             double temp;
-            temp = beforePoint.toCharArray()[count];
+            temp = Double.parseDouble(String.valueOf(beforePoint.toCharArray()[count]));
             temp = temp * Math.pow(2,x);
             beforeTotal += Math.round(temp);
+            count--;
+        }
+        int afterTotal = 0;
+        count = 1;
+        for(int x = 1; x < afterPoint.length(); x++){
+            double temp;
+            temp = Double.parseDouble(String.valueOf(beforePoint.toCharArray()[count]));
+            temp = temp * 1/Math.pow(2,x);
+            afterTotal += Math.round(temp);
+            count++;
         }
 
         return(beforeTotal);
@@ -95,12 +105,12 @@ public class Conversion {
         int radix = 1 << shift;
         int mask = radix - 1;
         do {
-            buf[offset + --charPos] = digits[val & mask];
-            val >>>= shift;
-        } while (val != 0 && charPos > 0);
+        buf[offset + --charPos] = digits[val & mask];
+        val >>>= shift;
+    } while (val != 0 && charPos > 0);
 
         return charPos;
-    }
+}
 
     final static char[] digits = {
             '0' , '1' , '2' , '3' , '4' , '5' ,
