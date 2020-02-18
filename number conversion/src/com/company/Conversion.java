@@ -73,17 +73,17 @@ public class Conversion {
             beforeTotal += Math.round(temp);
             count--;
         }
-        int afterTotal = 0;
+        double afterTotal = 0.0;
         count = 1;
-        for(int x = 1; x < afterPoint.length(); x++){
+        for(int x = 1; x < afterPoint.length()+1; x++){
             double temp;
-            temp = Double.parseDouble(String.valueOf(beforePoint.toCharArray()[count]));
+            temp = Double.parseDouble(String.valueOf(afterPoint.toCharArray()[count]));
             temp = temp * 1/Math.pow(2,x);
-            afterTotal += Math.round(temp);
+            afterTotal += temp;
             count++;
         }
 
-        return(beforeTotal);
+        return(afterTotal);
 
 
     }
