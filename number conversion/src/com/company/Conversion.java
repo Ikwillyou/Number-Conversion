@@ -63,7 +63,7 @@ public class Conversion {
     public static double binaryToDecimal(String value){
         String beforePoint = value.substring(0,value.indexOf('.'));
         String afterPoint = value.substring(value.indexOf('.')+1);
-        String fullNum;
+        double fullNum = 0;
         int count = beforePoint.length()-1;
         int beforeTotal = 0;
         for(int x = 0; x < beforePoint.length(); x++){
@@ -74,7 +74,7 @@ public class Conversion {
             count--;
         }
         double afterTotal = 0.0;
-        count = 1;
+        count = 0;
         for(int x = 1; x < afterPoint.length()+1; x++){
             double temp;
             temp = Double.parseDouble(String.valueOf(afterPoint.toCharArray()[count]));
@@ -83,7 +83,9 @@ public class Conversion {
             count++;
         }
 
-        return(afterTotal);
+        fullNum = afterTotal + beforeTotal;
+
+        return(fullNum);
 
 
     }

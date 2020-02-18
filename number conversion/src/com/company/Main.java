@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Conversion convert = new Conversion();
-        double i = Conversion.binaryToDecimal("1101.1011");
+        double i = Conversion.binaryToDecimal("1101.101");
         System.out.println(i);
     }
 
