@@ -60,6 +60,82 @@ public class Conversion {
         return(str);
     }
 
+    public static double hexToDecimal(String value){
+        String beforePoint = value.substring(0,value.indexOf('.'));
+        String afterPoint = value.substring(value.indexOf('.')+1);
+        double fullNum = 0;
+        int count = beforePoint.length()-1;
+        int beforeTotal = 0;
+
+        for(int x = 0; x < beforePoint.length(); x++){
+            double temp;
+            switch(String.valueOf(beforePoint.toCharArray()[count]).toUpperCase()) {
+                case "A":
+                    temp = 10;
+                    break;
+                case "B":
+                    temp = 11;
+                    break;
+                case "C":
+                    temp = 12;
+                    break;
+                case "D":
+                    temp = 13;
+                    break;
+                case "E":
+                    temp = 14;
+                    break;
+                case "F":
+                    temp = 15;
+                    break;
+                default:
+                    temp = Double.parseDouble(String.valueOf(beforePoint.toCharArray()[count]));
+                    break;
+            }
+            temp = temp * Math.pow(16,x);
+            beforeTotal += Math.round(temp);
+            count--;
+        }
+
+        double afterTotal = 0.0;
+        count = 0;
+        for(int x = 1; x < afterPoint.length()+1; x++){
+            double temp;
+            switch(String.valueOf(afterPoint.toCharArray()[count]).toUpperCase()) {
+                case "A":
+                    temp = 10;
+                    break;
+                case "B":
+                    temp = 11;
+                    break;
+                case "C":
+                    temp = 12;
+                    break;
+                case "D":
+                    temp = 13;
+                    break;
+                case "E":
+                    temp = 14;
+                    break;
+                case "F":
+                    temp = 15;
+                    break;
+                default:
+                    temp = Double.parseDouble(String.valueOf(afterPoint.toCharArray()[count]));
+                    break;
+            }
+            temp = temp * 1/Math.pow(16,x);
+            afterTotal += temp;
+            count++;
+        }
+
+        fullNum = afterTotal + beforeTotal;
+
+        return(fullNum);
+
+
+    }
+
     public static double binaryToDecimal(String value){
         String beforePoint = value.substring(0,value.indexOf('.'));
         String afterPoint = value.substring(value.indexOf('.')+1);
